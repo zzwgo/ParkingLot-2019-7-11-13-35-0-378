@@ -36,6 +36,7 @@ public class ParkingBoy {
         if(ticket==null){
             throw new ParkingException("Please provide your parking ticket.");
         }
+        int i=0;
         for(ParkingLot parkingLot:parkingLots){
             Car car=parkingLot.fetch(ticket);
             if(car!=null){
