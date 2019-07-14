@@ -7,13 +7,15 @@ public class ParkingBoy {
     }
 
     public Ticket parking(Car car) {
+        if(parkingLot.parkingMap.size()>=10){
+            return null;
+        }
         Ticket ticket=new Ticket();
         parkingLot.park(ticket,car);
         return ticket;
     }
 
     public Car fetchCar(Ticket ticket) {
-        Car car=parkingLot.fetch(ticket);
-        return car;
+        return parkingLot.fetch(ticket);
     }
 }

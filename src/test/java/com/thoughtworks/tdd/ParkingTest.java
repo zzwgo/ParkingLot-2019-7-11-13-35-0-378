@@ -58,4 +58,17 @@ public class ParkingTest {
         Car fetchCar2=parkingBoy.fetchCar(ticket1);
         Assertions.assertEquals(null, fetchCar2);
     }
+
+    @Test
+    public void should_not_parking_the_car_when_parkingLot_is_fulled(){
+        ParkingLot parkingLot=new ParkingLot();
+        ParkingBoy parkingBoy=new ParkingBoy(parkingLot);
+        for(int i=0;i<10;i++){
+            Car car=new Car();
+            Ticket ticket1=parkingBoy.parking(car);
+        }
+        Car car_11=new Car();
+        Ticket ticket11=parkingBoy.parking(car_11);
+        Assertions.assertEquals(null, ticket11);
+    }
 }
