@@ -10,6 +10,11 @@ public class ParkingBoy {
         if(parkingLot.parkingMap.size()>=10){
             return null;
         }
+        for(Ticket ticket:parkingLot.parkingMap.keySet()){
+            if(parkingLot.parkingMap.get(ticket).equals(car)){
+                return  null;
+            }
+        }
         Ticket ticket=new Ticket();
         parkingLot.park(ticket,car);
         return ticket;

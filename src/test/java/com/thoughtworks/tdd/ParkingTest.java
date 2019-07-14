@@ -71,4 +71,13 @@ public class ParkingTest {
         Ticket ticket11=parkingBoy.parking(car_11);
         Assertions.assertEquals(null, ticket11);
     }
+    @Test
+    public void should_not_parking_the_car_when_parking_a_parked_car(){
+        ParkingLot parkingLot=new ParkingLot();
+        ParkingBoy parkingBoy=new ParkingBoy(parkingLot);
+        Car car1=new Car();
+        Ticket ticket1=parkingBoy.parking(car1);
+        Ticket ticket2=parkingBoy.parking(car1);
+        Assertions.assertEquals(null, ticket2);
+    }
 }
