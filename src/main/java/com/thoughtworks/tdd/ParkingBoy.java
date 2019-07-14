@@ -38,8 +38,10 @@ public class ParkingBoy {
         }
         int i=0;
         for(ParkingLot parkingLot:parkingLots){
+            i++;
             Car car=parkingLot.fetch(ticket);
             if(car!=null){
+                System.err.println(i);
                 isUnrecognized=false;
                 return car;
             }
