@@ -73,7 +73,7 @@ public class ParkingTest {
         Throwable exception2 = assertThrows(ParkingException.class,()->{
             ParkingLot parkingLot=new ParkingLot();
             ParkingBoy parkingBoy=new ParkingBoy(parkingLot);
-            for(int i=0;i<10;i++){
+            for(int i=0;i<20;i++){
                 Car car=new Car();
                 Ticket ticket1=parkingBoy.parking(car);
             }
