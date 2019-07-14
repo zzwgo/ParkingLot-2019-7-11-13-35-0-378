@@ -8,6 +8,7 @@ public class ParkingBoy {
 
     public Ticket parking(Car car) {
         if(parkingLot.parkingMap.size()>=10){
+
             return null;
         }
         for(Ticket ticket:parkingLot.parkingMap.keySet()){

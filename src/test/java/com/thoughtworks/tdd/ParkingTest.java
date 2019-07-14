@@ -7,6 +7,8 @@ import java.util.HashMap;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ParkingTest {
     @Test
@@ -41,22 +43,29 @@ public class ParkingTest {
         Car car2=new Car();
         Ticket ticket1=parkingBoy.parking(car1);
         // not give a ticket
-        Car fetchCar1=parkingBoy.fetchCar(null);
-        Assertions.assertEquals(null, fetchCar1);
+        Throwable exception1 = assertThrows(ParkingException.class,()->{
+            Car fetchCar1=parkingBoy.fetchCar(null);
+        });
+        assertEquals("Please provide your parking ticket.",exception1.getMessage());
         // not give a wrong ticket
-        Car fetchCar2=parkingBoy.fetchCar(new Ticket());
-        Assertions.assertEquals(null, fetchCar2);
+        Throwable exception2 = assertThrows(ParkingException.class,()->{
+            Car fetchCar2=parkingBoy.fetchCar(new Ticket());
+        });
+        assertEquals("Unrecognized parking ticket.",exception2.getMessage());
     }
 
     @Test
     public void should_not_fetch_the_car_when_give_a_ticket_had_been_used() throws Exception {
-        ParkingLot parkingLot=new ParkingLot();
-        ParkingBoy parkingBoy=new ParkingBoy(parkingLot);
-        Car car1=new Car();
-        Ticket ticket1=parkingBoy.parking(car1);
-        Car fetchCar1=parkingBoy.fetchCar(ticket1);
-        Car fetchCar2=parkingBoy.fetchCar(ticket1);
-        Assertions.assertEquals(null, fetchCar2);
+
+        Throwable exception2 = assertThrows(ParkingException.class,()->{
+            ParkingLot parkingLot=new ParkingLot();
+            ParkingBoy parkingBoy=new ParkingBoy(parkingLot);
+            Car car1=new Car();
+            Ticket ticket1=parkingBoy.parking(car1);
+            Car fetchCar1=parkingBoy.fetchCar(ticket1);
+            Car fetchCar2=parkingBoy.fetchCar(ticket1);
+        });
+        assertEquals("Unrecognized parking ticket.",exception2.getMessage());
     }
 
     @Test
