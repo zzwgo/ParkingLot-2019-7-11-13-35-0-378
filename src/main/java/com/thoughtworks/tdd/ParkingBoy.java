@@ -20,7 +20,10 @@ public class ParkingBoy {
         return ticket;
     }
 
-    public Car fetchCar(Ticket ticket) {
+    public Car fetchCar(Ticket ticket) throws Exception {
+        if(ticket==null||parkingLot.parkingMap.get(ticket)==null){
+            throw new ParkingException("Unrecognized parking ticket.");
+        }
         return parkingLot.fetch(ticket);
     }
 }

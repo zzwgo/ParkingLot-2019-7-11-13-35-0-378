@@ -10,7 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ParkingTest {
     @Test
-    public void parking_the_car_and_should_fetch_the_car_when_give_a_ticket(){
+    public void parking_the_car_and_should_fetch_the_car_when_give_a_ticket() throws Exception {
         ParkingLot parkingLot=new ParkingLot();
         ParkingBoy parkingBoy=new ParkingBoy(parkingLot);
         Car car=new Car();
@@ -20,7 +20,7 @@ public class ParkingTest {
     }
 
     @Test
-    public void parking_mutiple_cars_and_should_fetch_the_car_correct_when_give_a_ticket(){
+    public void parking_mutiple_cars_and_should_fetch_the_car_correct_when_give_a_ticket() throws Exception {
         ParkingLot parkingLot=new ParkingLot();
         ParkingBoy parkingBoy=new ParkingBoy(parkingLot);
         Car car1=new Car();
@@ -34,7 +34,7 @@ public class ParkingTest {
     }
 
     @Test
-    public void parking_cars_and_should_not_fetch_the_car_when_give_a_worng_ticket(){
+    public void parking_cars_and_should_not_fetch_the_car_when_give_a_worng_ticket() throws Exception {
         ParkingLot parkingLot=new ParkingLot();
         ParkingBoy parkingBoy=new ParkingBoy(parkingLot);
         Car car1=new Car();
@@ -49,7 +49,7 @@ public class ParkingTest {
     }
 
     @Test
-    public void should_not_fetch_the_car_when_give_a_ticket_had_been_used(){
+    public void should_not_fetch_the_car_when_give_a_ticket_had_been_used() throws Exception {
         ParkingLot parkingLot=new ParkingLot();
         ParkingBoy parkingBoy=new ParkingBoy(parkingLot);
         Car car1=new Car();
