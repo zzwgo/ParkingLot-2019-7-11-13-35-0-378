@@ -47,4 +47,15 @@ public class ParkingTest {
         Car fetchCar2=parkingBoy.fetchCar(new Ticket());
         Assertions.assertEquals(null, fetchCar2);
     }
+
+    @Test
+    public void should_not_fetch_the_car_when_give_a_ticket_had_been_used(){
+        ParkingLot parkingLot=new ParkingLot();
+        ParkingBoy parkingBoy=new ParkingBoy(parkingLot);
+        Car car1=new Car();
+        Ticket ticket1=parkingBoy.parking(car1);
+        Car fetchCar1=parkingBoy.fetchCar(ticket1);
+        Car fetchCar2=parkingBoy.fetchCar(ticket1);
+        Assertions.assertEquals(null, fetchCar2);
+    }
 }
