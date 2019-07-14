@@ -21,9 +21,13 @@ public class ParkingBoy {
     }
 
     public Car fetchCar(Ticket ticket) throws Exception {
-        if(ticket==null||parkingLot.parkingMap.get(ticket)==null){
+        if(ticket==null){
+            throw new ParkingException("Please provide your parking ticket.");
+        }
+        if(parkingLot.parkingMap.get(ticket)==null){
             throw new ParkingException("Unrecognized parking ticket.");
         }
+
         return parkingLot.fetch(ticket);
     }
 }
