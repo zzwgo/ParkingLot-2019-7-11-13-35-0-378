@@ -6,10 +6,9 @@ public class ParkingBoy {
         this.parkingLot=parkingLot;
     }
 
-    public Ticket parking(Car car) {
+    public Ticket parking(Car car) throws ParkingException {
         if(parkingLot.parkingMap.size()>=10){
-
-            return null;
+            throw new ParkingException("Not enough position.");
         }
         for(Ticket ticket:parkingLot.parkingMap.keySet()){
             if(parkingLot.parkingMap.get(ticket).equals(car)){

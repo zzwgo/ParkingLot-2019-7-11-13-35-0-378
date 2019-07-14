@@ -69,19 +69,21 @@ public class ParkingTest {
     }
 
     @Test
-    public void should_not_parking_the_car_when_parkingLot_is_fulled(){
-        ParkingLot parkingLot=new ParkingLot();
-        ParkingBoy parkingBoy=new ParkingBoy(parkingLot);
-        for(int i=0;i<10;i++){
-            Car car=new Car();
-            Ticket ticket1=parkingBoy.parking(car);
-        }
-        Car car_11=new Car();
-        Ticket ticket11=parkingBoy.parking(car_11);
-        Assertions.assertEquals(null, ticket11);
+    public void should_not_parking_the_car_when_parkingLot_is_fulled() throws ParkingException {
+        Throwable exception2 = assertThrows(ParkingException.class,()->{
+            ParkingLot parkingLot=new ParkingLot();
+            ParkingBoy parkingBoy=new ParkingBoy(parkingLot);
+            for(int i=0;i<10;i++){
+                Car car=new Car();
+                Ticket ticket1=parkingBoy.parking(car);
+            }
+            Car car_11=new Car();
+            Ticket ticket11=parkingBoy.parking(car_11);
+        });
+        Assertions.assertEquals("Not enough position.", exception2.getMessage());
     }
     @Test
-    public void should_not_parking_the_car_when_parking_a_parked_car(){
+    public void should_not_parking_the_car_when_parking_a_parked_car() throws ParkingException {
         ParkingLot parkingLot=new ParkingLot();
         ParkingBoy parkingBoy=new ParkingBoy(parkingLot);
         Car car1=new Car();

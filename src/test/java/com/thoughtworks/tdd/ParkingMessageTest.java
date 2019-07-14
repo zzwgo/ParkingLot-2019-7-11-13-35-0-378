@@ -28,4 +28,18 @@ public class ParkingMessageTest {
         });
         assertEquals("Please provide your parking ticket.",exception.getMessage());
     }
+    @Test
+    public void should_return_message_when_parkingLot_is_fulled() throws ParkingException {
+        Throwable exception2 = assertThrows(ParkingException.class,()->{
+            ParkingLot parkingLot=new ParkingLot();
+            ParkingBoy parkingBoy=new ParkingBoy(parkingLot);
+            for(int i=0;i<10;i++){
+                Car car=new Car();
+                Ticket ticket1=parkingBoy.parking(car);
+            }
+            Car car_11=new Car();
+            Ticket ticket11=parkingBoy.parking(car_11);
+        });
+        Assertions.assertEquals("Not enough position.", exception2.getMessage());
+    }
 }
