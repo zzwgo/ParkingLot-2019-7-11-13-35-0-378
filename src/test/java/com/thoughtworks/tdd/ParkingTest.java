@@ -1,6 +1,9 @@
 package com.thoughtworks.tdd;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.HashMap;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -28,5 +31,20 @@ public class ParkingTest {
         Car fetchCar2=parkingBoy.fetchCar(ticket2);
         assertThat(car1, is(fetchCar1));
         assertThat(car2, is(fetchCar2));
+    }
+
+    @Test
+    public void parking_cars_and_should_not_fetch_the_car_when_give_a_worng_ticket(){
+        ParkingLot parkingLot=new ParkingLot();
+        ParkingBoy parkingBoy=new ParkingBoy(parkingLot);
+        Car car1=new Car();
+        Car car2=new Car();
+        Ticket ticket1=parkingBoy.parking(car1);
+        // not give a ticket
+        Car fetchCar1=parkingBoy.fetchCar(null);
+        Assertions.assertEquals(null, fetchCar1);
+        // not give a wrong ticket
+        Car fetchCar2=parkingBoy.fetchCar(new Ticket());
+        Assertions.assertEquals(null, fetchCar2);
     }
 }
