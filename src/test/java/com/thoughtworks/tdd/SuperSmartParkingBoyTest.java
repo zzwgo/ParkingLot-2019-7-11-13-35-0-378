@@ -6,11 +6,9 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SmartParkingBoyTest {
+public class SuperSmartParkingBoyTest {
     @Test
     public void mutiple_parkingt_lots_can_fetch_correct_car() throws Exception {
         List<ParkingLot> lots=new ArrayList<>();
@@ -18,20 +16,19 @@ public class SmartParkingBoyTest {
         ParkingLot parkingLot2=new ParkingLot();
         lots.add(parkingLot1);
         lots.add(parkingLot2);
-        SmartPakingBoy SmartParkingBoy=new SmartPakingBoy(lots);
+        SuperSmartParkingBoy superSmartParkingBoy=new SuperSmartParkingBoy(lots);
         Car firstCar=new Car();
-        Ticket ticketFirst=SmartParkingBoy.parking(firstCar);
+        Ticket ticketFirst=superSmartParkingBoy.parking(firstCar);
         for(int i=0;i<19;i++){
             Car car=new Car();
-            Ticket ticket=SmartParkingBoy.parking(car);
+            Ticket ticket=superSmartParkingBoy.parking(car);
         }
-        Car firstCarFetch=SmartParkingBoy.fetchCar(ticketFirst);
+        Car firstCarFetch=superSmartParkingBoy.fetchCar(ticketFirst);
 
         Car car11=new Car();
-        Ticket ticketLast=SmartParkingBoy.parking(car11);
-
-        Car fetchCarLast=SmartParkingBoy.fetchCar(ticketLast);
-
+        Ticket ticketLast=superSmartParkingBoy.parking(car11);
+        System.out.println(parkingLot1.parkingMap.get(ticketLast));
+        Car fetchCarLast=superSmartParkingBoy.fetchCar(ticketLast);
         Assertions.assertFalse(parkingLot1.parkingMap.get(fetchCarLast)!=null);
     }
 }
