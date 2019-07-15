@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SmartParkingBoyTest {
     @Test
-    public void mutiple_parkingt_lots_can_fetch_correct_car() throws Exception {
+    public void should_park_car_in_more_empty_positions_lot() throws Exception {
         List<ParkingLot> lots=new ArrayList<>();
         ParkingLot parkingLot1=new ParkingLot();
         ParkingLot parkingLot2=new ParkingLot();
