@@ -26,6 +26,6 @@ public class SmartParkingBoyTest {
         Car SecondeCar=new Car();
         Ticket ticketLast=SmartParkingBoy.parking(SecondeCar);
 
-        Assertions.assertTrue(parkingLot1.parkingMap.get(ticketLast)==null);
+        Assertions.assertTrue(parkingLot1.getParkingMap().get(ticketLast)==null);
     }
 }

@@ -27,8 +27,7 @@ public class SuperSmartParkingBoyTest {
 
         Car car11=new Car();
         Ticket ticketLast=superSmartParkingBoy.parking(car11);
-        System.out.println(parkingLot1.parkingMap.get(ticketLast));
         Car fetchCarLast=superSmartParkingBoy.fetchCar(ticketLast);
-        Assertions.assertFalse(parkingLot1.parkingMap.get(fetchCarLast)!=null);
+        Assertions.assertFalse(parkingLot1.getParkingMap().get(fetchCarLast)!=null);
     }
 }

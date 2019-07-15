@@ -21,7 +21,7 @@ public class SuperSmartParkingBoy extends ParkingBoy {
                 return null;
             }
             if(!parkingLots.get(chooseLot).isFull() && !parkingLot.isFull()){
-                chooseLot=(10-parkingLots.get(chooseLot).parkingMap.size())/total_capacity>=(10-parkingLot.parkingMap.size())/total_capacity ?chooseLot:index;
+                chooseLot=(10-parkingLots.get(chooseLot).getParkingMap().size())/total_capacity>=(10-parkingLot.getParkingMap().size())/total_capacity ?chooseLot:index;
             }
             if(parkingLots.get(chooseLot).isFull()&&chooseLot<parkingLots.size()){
                 chooseLot++;
