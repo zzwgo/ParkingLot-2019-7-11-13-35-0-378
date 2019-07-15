@@ -15,13 +15,12 @@ public class SuperSmartParkingBoy extends ParkingBoy {
     public Ticket parking(Car car) throws ParkingException {
         int index=0;
         int chooseLot=0;
-        int total_capacity=parkingLots.size()*10;
         for(ParkingLot parkingLot:parkingLots){
             if(parkingLot.hasBeenPark(car)){
                 return null;
             }
             if(!parkingLots.get(chooseLot).isFull() && !parkingLot.isFull()){
-                chooseLot=(10-parkingLots.get(chooseLot).getParkingMap().size())/total_capacity>=(10-parkingLot.getParkingMap().size())/total_capacity ?chooseLot:index;
+                chooseLot=(10-parkingLots.get(chooseLot).getParkingMap().size())/10>=(10-parkingLot.getParkingMap().size())/10 ?chooseLot:index;
             }
             if(parkingLots.get(chooseLot).isFull()&&chooseLot<parkingLots.size()){
                 chooseLot++;
