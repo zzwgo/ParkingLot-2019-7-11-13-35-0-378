@@ -19,19 +19,13 @@ public class SmartParkingBoyTest {
         lots.add(parkingLot1);
         lots.add(parkingLot2);
         SmartPakingBoy SmartParkingBoy=new SmartPakingBoy(lots);
+
         Car firstCar=new Car();
         Ticket ticketFirst=SmartParkingBoy.parking(firstCar);
-        for(int i=0;i<19;i++){
-            Car car=new Car();
-            Ticket ticket=SmartParkingBoy.parking(car);
-        }
-        Car firstCarFetch=SmartParkingBoy.fetchCar(ticketFirst);
 
-        Car car11=new Car();
-        Ticket ticketLast=SmartParkingBoy.parking(car11);
+        Car SecondeCar=new Car();
+        Ticket ticketLast=SmartParkingBoy.parking(SecondeCar);
 
-        Car fetchCarLast=SmartParkingBoy.fetchCar(ticketLast);
-
-        Assertions.assertFalse(parkingLot1.parkingMap.get(fetchCarLast)!=null);
+        Assertions.assertTrue(parkingLot1.parkingMap.get(ticketLast)==null);
     }
 }
