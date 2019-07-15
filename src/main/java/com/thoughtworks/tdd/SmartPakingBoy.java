@@ -23,7 +23,7 @@ public class SmartPakingBoy extends ParkingBoy {
                 return null;
             }
             if(!parkingLots.get(chooseLot).isFull() && !parkingLot.isFull()){
-                    chooseLot=parkingLots.get(chooseLot).parkingMap.size()>=parkingLot.parkingMap.size()?chooseLot:index;
+                    chooseLot=parkingLots.get(chooseLot).parkingMap.size()<=parkingLot.parkingMap.size()?chooseLot:index;
             }
             if(parkingLots.get(chooseLot).isFull()&&chooseLot<parkingLots.size()){
                 chooseLot++;
